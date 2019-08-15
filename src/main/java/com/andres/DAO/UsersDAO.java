@@ -21,11 +21,19 @@ public class UsersDAO {
             }
         };
     }
-    public Collection<Users> getAllUsers(){
+
+    public Collection<Users> getAllUsers() {
         return this.users.values();
     }
 
-    public Users getUserById(int id){
+    public Users getUserById(int id) {
         return this.users.get(id);
+    }
+
+    public void removeUsersById(int id) {
+
+        this.users.remove(id);
+
+
     }
 }

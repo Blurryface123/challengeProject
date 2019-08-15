@@ -3,10 +3,8 @@ package com.andres.Controller;
 import com.andres.Entity.Users;
 import com.andres.Service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -24,7 +22,12 @@ public class usersController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Users getUserById(@PathVariable("id") int id){
+    public Users getUsersById(@PathVariable("id") int id){
         return this.usersService.getUserById(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void removeUsersById(@PathVariable("id") int id){
+        this.usersService.removeUsersById(id);
     }
 }

@@ -20,4 +20,8 @@ public class UsersService {
     public Users getUserById(int id){
         return this.usersDAO.getUserById(id);
     }
+
+    public void removeUsersById(int id) {
+         this.usersDAO.removeUsersById(id);
+    }
 }

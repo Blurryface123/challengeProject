@@ -3,6 +3,7 @@ package com.andres.Controller;
 import com.andres.Entity.Users;
 import com.andres.Service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +23,8 @@ public class usersController {
         return usersService.getAllUsers();
     }
 
-    @RequestMapping(value = "/id", method = RequestMethod.GET)
-    public Users getStudentById(int id){
-        return this.usersService.getStudentById(id);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Users getUserById(@PathVariable("id") int id){
+        return this.usersService.getUserById(id);
     }
 }

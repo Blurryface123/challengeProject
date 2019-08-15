@@ -25,7 +25,7 @@ public class UsersDAO {
         return this.users.values();
     }
 
-    public Users getStudentById(int id){
+    public Users getUserById(int id){
         return this.users.get(id);
     }
 }

@@ -18,27 +18,27 @@ public class usersController {
     @Autowired
     private UsersService usersService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public Collection<Users> getAllUsers() {
         return usersService.getAllUsers();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}")
     public Users getUsersById(@PathVariable("id") int id) {
         return this.usersService.getUserById(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/{id}")
     public void removeUsersById(@PathVariable("id") int id) {
         this.usersService.removeUsersById(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping
     public void updateUser(@RequestBody Users user){
         usersService.updateUser(user);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public void createUser(@RequestBody Users user){
         usersService.createUser(user);
     }

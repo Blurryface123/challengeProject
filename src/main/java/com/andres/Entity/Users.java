@@ -1,5 +1,6 @@
 package com.andres.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.catalina.User;
 
 public class Users {
@@ -10,7 +11,8 @@ public class Users {
     private String email;
     private String password;
 
-    public Users(int id, String name, int age, String userName, String email, String password) {
+    public Users(@JsonProperty("id") int id,@JsonProperty("name") String name,@JsonProperty("age") int age,
+                 @JsonProperty("userName") String userName,@JsonProperty("email") String email,@JsonProperty("password") String password) {
         this.id = id;
         this.name = name;
         this.age = age;

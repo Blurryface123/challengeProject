@@ -2,23 +2,32 @@ package com.andres.Service;
 
 import com.andres.DAO.UsersDAO;
 import com.andres.Entity.Users;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 
 @Service
 public class UsersService {
 
-    @Autowired
-    private UsersDAO usersDAO;
+    private final UsersDAO usersDAO;
 
-    public Collection<Users> getAllUsers() {
-        return usersDAO.getAllUsers();
+    @Autowired
+    public UsersService(@Qualifier("fakeDAO") UsersDAO usersDAO) {
+        this.usersDAO = usersDAO;
+    }
+    public int createUser(Users user) {
+
+        return usersDAO.createUser(user);
     }
 
+    public List<Users> getAllUsers() {
+        return usersDAO.getAllUsers();
+    }
+/*
     public Users getUserById(int id) {
         return this.usersDAO.getUserById(id);
     }
@@ -28,9 +37,7 @@ public class UsersService {
     }
     public void updateUser(Users user){
         this.usersDAO.updateUser(user);
-    }
+    }*/
 
-    public void createUser(Users user) {
-        usersDAO.createUser(user);
-    }
+
 }

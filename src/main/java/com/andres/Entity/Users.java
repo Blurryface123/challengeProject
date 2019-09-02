@@ -1,18 +1,20 @@
 package com.andres.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.catalina.User;
+
+import java.util.UUID;
 
 public class Users {
-    private int id;
+    private UUID id;
     private String name;
     private int age;
     private String userName;
     private String email;
     private String password;
 
-    public Users(@JsonProperty("id") int id,@JsonProperty("name") String name,@JsonProperty("age") int age,
-                 @JsonProperty("userName") String userName,@JsonProperty("email") String email,@JsonProperty("password") String password) {
+    public Users(@JsonProperty("id") UUID id, @JsonProperty("name") String name,
+                 @JsonProperty("age") int age, @JsonProperty("username") String userName,
+                 @JsonProperty("email") String email, @JsonProperty("password") String password) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -23,11 +25,11 @@ public class Users {
 
     public Users(){}
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -1,15 +1,20 @@
 package com.andres.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class Users {
     private UUID id;
+    @NotBlank
     private String name;
+    @NotBlank
     private int age;
+    @NotBlank
     private String userName;
+    @NotBlank
     private String email;
+    @NotBlank
     private String password;
 
     public Users(@JsonProperty("id") UUID id, @JsonProperty("name") String name,
@@ -72,4 +77,18 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Id : ").append(this.id).append("\n");
+        sb.append("name : ").append(this.name).append("\n");
+        sb.append("Age : ").append(this.age).append("\n");
+        sb.append("Username : ").append(this.userName).append("\n");
+        sb.append("Email : ").append(this.email).append("\n");
+        sb.append("Password : ").append(this.password).append("\n");
+        return sb.toString();
+    }
+
 }

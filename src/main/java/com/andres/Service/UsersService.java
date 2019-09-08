@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
@@ -16,7 +18,7 @@ public class UsersService {
     private final UsersDAO usersDAO;
 
     @Autowired
-    public UsersService(@Qualifier("fakeDAO") UsersDAO usersDAO) {
+    public UsersService(@Qualifier("postgres") UsersDAO usersDAO) {
         this.usersDAO = usersDAO;
     }
     public int createUser(Users user) {
@@ -26,6 +28,18 @@ public class UsersService {
 
     public List<Users> getAllUsers() {
         return usersDAO.getAllUsers();
+    }
+
+    public Optional<Users> getUserById(UUID id){
+        return usersDAO.getUserById(id);
+    }
+
+    public int deleteUser(UUID id){
+        return usersDAO.deleteUsersById(id);
+    }
+
+    public int updateUser(UUID id, Users updatedUser){
+        return usersDAO.updateUserById(id, updatedUser);
     }
 /*
     public Users getUserById(int id) {

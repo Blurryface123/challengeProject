@@ -16,12 +16,15 @@ public interface UsersDAO {
     }
 
     List<Users> getAllUsers();
+    Optional<Users> getUserById(UUID id);
+    int deleteUsersById(UUID id);
+    int updateUserById(UUID id, Users user) ;
 /*
     public Users getUserById(int id) {
         return this.users.get(id);
     }
 
-    public void removeUsersById(int id) {
+    public void deleteUsersById(int id) {
 
         this.users.remove(id);
     }

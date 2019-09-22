@@ -2,8 +2,9 @@ package com.andres.Controller;
 
 import com.andres.Entity.Users;
 import com.andres.Service.UsersService;
-import com.mongodb.lang.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -42,8 +43,12 @@ public class usersController {
                 .orElse(null);
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @DeleteMapping(path = "/{id}")
     public void deleteUserById(@PathVariable("id") UUID id){
+        if(!HttpStatus.values().equals(200)){
+            System.out.println("THE USER DOES NOT EXIST");
+        }
         usersService.deleteUser(id);
     }
 

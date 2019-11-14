@@ -1,7 +1,6 @@
-package com.andres.DAO;
+package com.andres.userDAO;
 
-import com.andres.Entity.Users;
-import org.apache.catalina.User;
+import com.andres.entity.Users;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

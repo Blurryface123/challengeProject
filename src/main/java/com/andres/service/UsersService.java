@@ -1,12 +1,11 @@
-package com.andres.Service;
+package com.andres.service;
 
-import com.andres.DAO.UsersDAO;
-import com.andres.Entity.Users;
+import com.andres.userDAO.UsersDAO;
+import com.andres.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

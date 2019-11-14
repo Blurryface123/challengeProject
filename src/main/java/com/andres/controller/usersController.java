@@ -1,17 +1,14 @@
-package com.andres.Controller;
+package com.andres.controller;
 
-import com.andres.Entity.Users;
-import com.andres.Service.UsersService;
+import com.andres.entity.Users;
+import com.andres.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 
@@ -44,7 +41,7 @@ public class usersController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public void deleteUserById(@PathVariable("id") UUID id){
         if(!HttpStatus.values().equals(200)){
             System.out.println("THE USER DOES NOT EXIST");

@@ -1,4 +1,4 @@
-package com.andres.Entity;
+package com.andres.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotBlank;
